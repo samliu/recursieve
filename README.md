@@ -11,7 +11,7 @@ income during the month.
 
 ## Usage
 ```
-python process.py --filename=example.md
+python recursieve.py --filename=example.md
 ```
 ```
 Monthly Cashflow Report

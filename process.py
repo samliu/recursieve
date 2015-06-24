@@ -170,7 +170,7 @@ class ColorPrinter(object):
 
 
 @click.command()
-@click.option('--filename', default='data.md',
+@click.option('--filename', default='example.md',
               help='Which file to read data from.')
 def cli(filename):
     """Program to calculate cashflow from specially annotated markdown file."""

@@ -12,6 +12,7 @@ from collections import defaultdict
 
 
 class CashflowCalculator(object):
+
     """Calculates cashflow."""
 
     def __init__(self, data_file):

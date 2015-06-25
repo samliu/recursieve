@@ -6,12 +6,14 @@
 #
 # MIT License (see repo).
 import click
+import sys
 from decimal import Decimal
 from collections import defaultdict
 
 
 class CashflowCalculator(object):
     """Calculates cashflow."""
+
     def __init__(self, data_file):
         """Read data file and save line items."""
         # These variables record categorical and total spend.
@@ -32,7 +34,8 @@ class CashflowCalculator(object):
             raw_text = open(data_file)
             self.unprocessed_lines = raw_text.readlines()
         except Exception as e:
-            print e
+            print "No data file found. Try --help for options."
+            sys.exit()
 
         # Color printer.
         self.printer = ColorPrinter()
@@ -127,10 +130,9 @@ class CashflowCalculator(object):
         self.printer.println("Spend is ${0} total per month.".format(
                              self.total_spend), color="FAILRED")
 
-
         # Net saved.
         total_saved_by_percent_salary = (self.net_per_category['Salary'] *
-            self.total_savings_percent * 0.01)
+                                         self.total_savings_percent * 0.01)
         net_saved = total_saved_by_percent_salary + self.total_savings_dollars
         self.printer.println(
             "Net saved this month was: "
@@ -149,8 +151,11 @@ class CashflowCalculator(object):
                 "Net disposable income this month was: ${0}.".format(
                     net_difference), color="OKGREEN")
 
+
 class ColorPrinter(object):
+
     """Class to print with color."""
+
     def __init__(self):
         self.colors = {
             "FAILRED":      '\033[91m',

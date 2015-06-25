@@ -9,8 +9,13 @@ see how removing certain services affects my disposable income. This also lets
 me factor in saving goals, 401k planned contributions, and account for other
 income during the month.
 
-## Usage
+## Install
+```python
+pip install -r requirements.txt
 ```
+
+## Usage
+```bash
 python recursieve.py --filename=example.md
 ```
 ```
